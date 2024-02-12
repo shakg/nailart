@@ -20,7 +20,7 @@ export class ResultComponent {
   public imageUrl: string = "";
   constructor(
     private route: ActivatedRoute,
-    private openaiService: OpenaiService,
+    private openaiService: OpenaiService
   ) {
     this.route.queryParams.subscribe((params) => {
       // Retrieve parameters from the URL
@@ -31,9 +31,9 @@ export class ResultComponent {
       this.texture = params["texture"];
 
       const prompt = `
-        Generate me a MACRO SHOT nail art. I want ${this.decoration} patterns, with the texture of ${this.texture}
+        You must strictly follow my prompt otherwise it will cause trouble. Generate me a MACRO SHOT nail art. I want realistic image. I want ${this.decoration} patterns, with the texture of ${this.texture}
         I'll like to be it to ${this.mainColor} and ${this.secondaryColor} colors. Display image on some woman hand to be more accurate.
-        DISPLAY ONLY THREE FINGERS. Make it ${this.baseStyle} I want the pattern to be the same on every nail.
+        DISPLAY ONLY THREE FINGERS. Make it ${this.baseStyle} I want SIMPLE and SIMPLE patterns only. Real humans must be able to apply this patterns.P
         `;
 
       this.openaiService

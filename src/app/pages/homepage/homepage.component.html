@@ -1,171 +1,144 @@
-<div class="flex flex-col gap-12 p-8">
-    <div class="rounded border border-gray-300 p-4">
-        <h3 class="mb-2"><b>Select main color</b></h3>
-        <div class="overflow-x-none flex flex-row flex-wrap gap-2">
-            <div
-                class="h-16 w-16 rounded bg-blue-500"
-                [ngClass]="{'selected-color': selectedMainColor === 'blue'}"
-                (click)="selectColor('blue')"
-            ></div>
-            <div
-                class="h-16 w-16 rounded bg-indigo-500"
-                [ngClass]="{'selected-color': selectedMainColor === 'indigo'}"
-                (click)="selectColor('indigo')"
-            ></div>
-            <div
-                class="h-16 w-16 rounded bg-green-500"
-                [ngClass]="{'selected-color': selectedMainColor === 'green'}"
-                (click)="selectColor('green')"
-            ></div>
-            <div
-                class="h-16 w-16 rounded bg-red-500"
-                [ngClass]="{'selected-color': selectedMainColor === 'red'}"
-                (click)="selectColor('red')"
-            ></div>
-        </div>
+<div class="flex flex-col gap-8 p-4">
+  <p class="text-center text-2xl">Generate your nail art</p>
+  <div class="flex flex-row gap-4 items-center justify-center">
+    <ng-container>
+      <h3>Main color</h3>
+      <div class="overflow-x-none flex flex-row flex-wrap gap-2">
+        <input
+          type="color"
+          [(ngModel)]="selectedMainColor"
+          (input)="onMainColorChange($event)"
+        />
+      </div>
+    </ng-container>
+
+    <ng-container>
+      <h3>Secondary color</h3>
+      <input
+        type="color"
+        [(ngModel)]="selectedSecondaryColor"
+        (input)="onSecondaryColorChange($event)"
+      />
+    </ng-container>
+  </div>
+
+  <div class="">
+    <h3 class="mb-2"><b>Select base style</b></h3>
+    <div class="flex flex-row flex-nowrap gap-2">
+      <div
+        class="rounded border border-gray-300 px-4 py-2"
+        [ngClass]="{ 'selected-color': selectedStyle === 'Solid Color' }"
+        (click)="selectStyle('Solid Color')"
+      >
+        Solid
+      </div>
+      <div
+        class="rounded border border-gray-300 px-4 py-2"
+        [ngClass]="{ 'selected-color': selectedStyle === 'French tips' }"
+        (click)="selectStyle('French tips')"
+      >
+        French
+      </div>
+
+      <div
+        class="rounded border border-gray-300 px-4 py-2"
+        [ngClass]="{ 'selected-color': selectedStyle === 'Fancy' }"
+        (click)="selectStyle('Fancy')"
+      >
+        Fancy
+      </div>
     </div>
+  </div>
 
-    <div class="rounded border border-gray-300 p-4">
-        <h3 class="mb-2"><b>Select secondary color</b></h3>
-        <div class="overflow-x-none flex flex-row flex-wrap gap-2">
-            <div
-                class="h-16 w-16 rounded bg-blue-500"
-                [ngClass]="{'selected-color': selectedSecondaryColor === 'blue'}"
-                (click)="selectSecondaryColor('blue')"
-            ></div>
-            <div
-                class="h-16 w-16 rounded bg-indigo-500"
-                [ngClass]="{'selected-color': selectedSecondaryColor === 'indigo'}"
-                (click)="selectSecondaryColor('indigo')"
-            ></div>
-            <div
-                class="h-16 w-16 rounded bg-green-500"
-                [ngClass]="{'selected-color': selectedSecondaryColor === 'green'}"
-                (click)="selectSecondaryColor('green')"
-            ></div>
-            <div
-                class="h-16 w-16 rounded bg-red-500"
-                [ngClass]="{'selected-color': selectedSecondaryColor === 'red'}"
-                (click)="selectSecondaryColor('red')"
-            ></div>
-        </div>
+  <div class="">
+    <h3 class="mb-2"><b>Decoration style</b></h3>
+    <div class="overflow-x-none flex flex-row flex-wrap gap-2">
+      <div
+        class="rounded border border-gray-300 px-4 py-2"
+        [ngClass]="{ 'selected-color': selectedDecoration === 'Lines' }"
+        (click)="selectDecoration('Lines')"
+      >
+        Lines
+      </div>
+      <div
+        class="rounded border border-gray-300 px-4 py-2"
+        [ngClass]="{ 'selected-color': selectedDecoration === 'Shapes' }"
+        (click)="selectDecoration('Shapes')"
+      >
+        Shapes
+      </div>
+
+      <div
+        class="rounded border border-gray-300 px-4 py-2"
+        [ngClass]="{ 'selected-color': selectedDecoration === 'Flowers' }"
+        (click)="selectDecoration('Flowers')"
+      >
+        Flowers
+      </div>
+      <div
+        class="line rounded border border-gray-300 px-4 py-2"
+        [ngClass]="{
+          'selected-color': selectedDecoration === 'Geometric Patterns'
+        }"
+        (click)="selectDecoration('Geometric Patterns')"
+      >
+        Geometric Patterns
+      </div>
+      <div
+        class="rounded border border-gray-300 px-4 py-2"
+        [ngClass]="{ 'selected-color': selectedDecoration === 'Polka Dots' }"
+        (click)="selectDecoration('Polka Dots')"
+      >
+        Polka Dots
+      </div>
+      <div
+        class="rounded border border-gray-300 px-4 py-2"
+        [ngClass]="{ 'selected-color': selectedDecoration === 'Stripes' }"
+        (click)="selectDecoration('Stripes')"
+      >
+        Stripes
+      </div>
     </div>
+  </div>
 
-    <div class="rounded border border-gray-300 p-4">
-        <h3 class="mb-2"><b>Select base style</b></h3>
-        <div class="flex flex-row flex-nowrap gap-2">
-            <div
-                class="rounded border border-gray-300 px-4 py-2"
-                [ngClass]="{'selected-color': selectedStyle === 'Solid Color'}"
-                (click)="selectStyle('Solid Color')"
-            >
-                Solid
-            </div>
-            <div
-                class="rounded border border-gray-300 px-4 py-2"
-                [ngClass]="{'selected-color': selectedStyle === 'French tips'}"
-                (click)="selectStyle('French tips')"
-            >
-                French
-            </div>
+  <div class="">
+    <h3 class="mb-2"><b>Texture</b></h3>
+    <div class="overflow-x-none flex flex-row flex-wrap gap-2">
+      <div
+        class="rounded border border-gray-300 px-4 py-2"
+        [ngClass]="{ 'selected-color': selectedTexture === 'Shimmer' }"
+        (click)="selectTexture('Shimmer')"
+      >
+        Shimmer
+      </div>
+      <div
+        class="rounded border border-gray-300 px-4 py-2"
+        [ngClass]="{ 'selected-color': selectedTexture === 'Glitter' }"
+        (click)="selectTexture('Glitter')"
+      >
+        Glitter
+      </div>
 
-            <div
-                class="rounded border border-gray-300 px-4 py-2"
-                [ngClass]="{'selected-color': selectedStyle === 'Fancy'}"
-                (click)="selectStyle('Fancy')"
-            >
-                Fancy
-            </div>
-        </div>
+      <div
+        class="rounded border border-gray-300 px-4 py-2"
+        [ngClass]="{ 'selected-color': selectedTexture === 'Marble' }"
+        (click)="selectTexture('Marble')"
+      >
+        Marble
+      </div>
+      <div
+        class="rounded border border-gray-300 px-4 py-2"
+        [ngClass]="{ 'selected-color': selectedTexture === 'Galaxy Theme' }"
+        (click)="selectTexture('Galaxy Theme')"
+      >
+        Galaxy Theme
+      </div>
     </div>
-
-    <div class="rounded border border-gray-300 p-4">
-        <h3 class="mb-2"><b>Decoration style</b></h3>
-        <div class="overflow-x-none flex flex-row flex-wrap gap-2">
-            <div
-                class="rounded border border-gray-300 px-4 py-2"
-                [ngClass]="{'selected-color': selectedDecoration === 'Lines'}"
-                (click)="selectDecoration('Lines')"
-            >
-                Lines
-            </div>
-            <div
-                class="rounded border border-gray-300 px-4 py-2"
-                [ngClass]="{'selected-color': selectedDecoration === 'Shapes'}"
-                (click)="selectDecoration('Shapes')"
-            >
-                Shapes
-            </div>
-
-            <div
-                class="rounded border border-gray-300 px-4 py-2"
-                [ngClass]="{'selected-color': selectedDecoration === 'Flowers'}"
-                (click)="selectDecoration('Flowers')"
-            >
-                Flowers
-            </div>
-            <div
-                class="line rounded border border-gray-300 px-4 py-2"
-                [ngClass]="{'selected-color': selectedDecoration === 'Geometric Patterns'}"
-                (click)="selectDecoration('Geometric Patterns')"
-            >
-                Geometric Patterns
-            </div>
-            <div
-                class="rounded border border-gray-300 px-4 py-2"
-                [ngClass]="{'selected-color': selectedDecoration === 'Polka Dots'}"
-                (click)="selectDecoration('Polka Dots')"
-            >
-                Polka Dots
-            </div>
-            <div
-                class="rounded border border-gray-300 px-4 py-2"
-                [ngClass]="{'selected-color': selectedDecoration === 'Stripes'}"
-                (click)="selectDecoration('Stripes')"
-            >
-                Stripes
-            </div>
-        </div>
-    </div>
-
-    <div class="rounded border border-gray-300 p-4">
-        <h3 class="mb-2"><b>Texture</b></h3>
-        <div class="overflow-x-none flex flex-row flex-wrap gap-2">
-            <div
-                class="rounded border border-gray-300 px-4 py-2"
-                [ngClass]="{'selected-color': selectedTexture === 'Shimmer'}"
-                (click)="selectTexture('Shimmer')"
-            >
-                Shimmer
-            </div>
-            <div
-                class="rounded border border-gray-300 px-4 py-2"
-                [ngClass]="{'selected-color': selectedTexture === 'Glitter'}"
-                (click)="selectTexture('Glitter')"
-            >
-                Glitter
-            </div>
-
-            <div
-                class="rounded border border-gray-300 px-4 py-2"
-                [ngClass]="{'selected-color': selectedTexture === 'Marble'}"
-                (click)="selectTexture('Marble')"
-            >
-                Marble
-            </div>
-            <div
-                class="rounded border border-gray-300 px-4 py-2"
-                [ngClass]="{'selected-color': selectedTexture === 'Galaxy Theme'}"
-                (click)="selectTexture('Galaxy Theme')"
-            >
-                Galaxy Theme
-            </div>
-        </div>
-    </div>
-    <button
-        class="rounded bg-blue-500 px-4 py-2 text-white"
-        (click)="generateNailArt()"
-    >
-        Generate my nailart
-    </button>
+  </div>
+  <button
+    class="rounded bg-blue-500 px-4 py-2 text-white"
+    (click)="generateNailArt()"
+  >
+    Generate my nailart
+  </button>
 </div>

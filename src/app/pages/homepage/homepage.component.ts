@@ -1,11 +1,12 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 import { Router, RouterLink } from "@angular/router";
 
 @Component({
   selector: "app-homepage",
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule,FormsModule],
   templateUrl: "./homepage.component.html",
   styleUrl: "./homepage.component.css",
 })
@@ -17,13 +18,13 @@ export class HomepageComponent {
   selectedStyle: string | null = null;
   selectedDecoration: string | null = null;
   selectedTexture: string | null = null;
-
-  selectColor(color: string) {
-    this.selectedMainColor = color;
+  
+  onMainColorChange(event: Event) {
+    this.selectedMainColor = (event.target as HTMLInputElement).value;
   }
 
-  selectSecondaryColor(color: string) {
-    this.selectedSecondaryColor = color;
+  onSecondaryColorChange(event: Event) {
+    this.selectedSecondaryColor = (event.target as HTMLInputElement).value;
   }
 
   selectStyle(style: string) {
