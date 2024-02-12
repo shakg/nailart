@@ -1,3 +1,5 @@
 export const environment = {
-    NG_APP_OPENAI_KEY : ""
+    "API_URL" : "https://openai-key-server.onrender.com/get-openai-api-key", // will change after obtaining IP from vercel
+    "USERNAME" : "shakg",
+    "PASSWORD" : "test"
 };
