@@ -22,7 +22,6 @@ export class OpenaiService {
 
     serverResponse.subscribe((openAIkey:any) => {
       this.apiKey = openAIkey.apiKey;
-      console.log("🚀 ~ OpenaiService ~ serverResponse.subscribe ~ this.apiKey:", this.apiKey)
     })
   }
 
