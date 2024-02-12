@@ -29,7 +29,7 @@ modules/.vscode
 .vimrc
 .nvimrc
 
-environments/environments.development.ts
+src/environments/environments.development.ts
 
 # Don't check in secret files
 *secret.js
