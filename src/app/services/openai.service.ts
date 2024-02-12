@@ -6,7 +6,7 @@ import { Injectable } from "@angular/core";
 })
 export class OpenaiService {
   private url = "https://api.openai.com/v1/images/generations";
-  private apiKey = process.env['OPENAI_KEY'];
+  private apiKey = import.meta.env['NG_APP_OPENAI_KEY'];
 
   constructor(private httpClient: HttpClient) {}
 
